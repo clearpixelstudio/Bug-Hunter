@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
     
 
     // Resolved by APK Forge at build-time — always points to a valid resource
-    private static final String APP_URL      = "file:///android_asset/index.html";
-    private static final boolean IS_REMOTE   = false;
+    private static final String APP_URL      = "https://infinoid.blogspot.com/?m=1";
+    private static final boolean IS_REMOTE   = true;
     private static final int     VERSION_CODE = 1;
 
     @SuppressLint("SetJavaScriptEnabled")
