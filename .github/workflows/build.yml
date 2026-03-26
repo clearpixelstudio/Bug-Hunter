@@ -80,13 +80,13 @@ jobs:
         run: |
           mkdir -p app
           keytool -genkeypair \
-            -alias "mykey" \
+            -alias "tanvirkeys" \
             -keyalg RSA \
             -keysize 2048 \
             -validity 10000 \
             -keystore app/keystore.jks \
-            -storepass "mysecurekey123" \
-            -keypass  "mysecurekey123" \
+            -storepass "tanvirkeys123" \
+            -keypass  "tanvirkeys123" \
             -dname    "CN=Bug Hunter, OU=App, O=APKForge, L=City, ST=State, C=US" \
             -noprompt
           echo ">>> Keystore created:"
@@ -96,9 +96,9 @@ jobs:
       - name: Build Release APK
         env:
           KEYSTORE_PATH: keystore.jks
-          KEYSTORE_PASSWORD: "mysecurekey123"
-          KEY_ALIAS:        "mykey"
-          KEY_PASSWORD:     "mysecurekey123"
+          KEYSTORE_PASSWORD: "tanvirkeys123"
+          KEY_ALIAS:        "tanvirkeys"
+          KEY_PASSWORD:     "tanvirkeys123"
         run: |
           echo ">>> Running assembleRelease via regenerated wrapper..."
           ./gradlew assembleRelease \
@@ -124,7 +124,7 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-1.0.0
+          name: app-release-1.0.1
           path: app/build/outputs/apk/release/*.apk
           retention-days: 30
           if-no-files-found: error
